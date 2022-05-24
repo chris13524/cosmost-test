@@ -1,0 +1,14 @@
+syntax = "proto3";
+package chris13524.cosmosttest.cosmosttest;
+
+import "gogoproto/gogo.proto";
+import "cosmosttest/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/chris13524/cosmost-test/x/cosmosttest/types";
+
+// GenesisState defines the cosmosttest module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}
