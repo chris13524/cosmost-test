@@ -22,6 +22,11 @@ export interface CosmosttestQueryParamsResponse {
   params?: CosmosttestParams;
 }
 
+export interface CosmosttestQueryPostsResponse {
+  title?: string;
+  body?: string;
+}
+
 export interface ProtobufAny {
   "@type"?: string;
 }
@@ -240,6 +245,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   queryParams = (params: RequestParams = {}) =>
     this.request<CosmosttestQueryParamsResponse, RpcStatus>({
       path: `/chris13524/cosmost-test/cosmosttest/params`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryPosts
+   * @summary Queries a list of Posts items.
+   * @request GET:/chris13524/cosmost-test/cosmosttest/posts
+   */
+  queryPosts = (params: RequestParams = {}) =>
+    this.request<CosmosttestQueryPostsResponse, RpcStatus>({
+      path: `/chris13524/cosmost-test/cosmosttest/posts`,
       method: "GET",
       format: "json",
       ...params,
